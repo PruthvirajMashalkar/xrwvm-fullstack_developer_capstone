@@ -15,8 +15,7 @@ class CarMake(models.Model):
 
 class CarModel(models.Model):
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    
+    name = models.CharField(max_length=100) 
     CAR_TYPES = [
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),
@@ -25,7 +24,6 @@ class CarModel(models.Model):
         ('HATCHBACK', 'Hatchback'),
         ('CONVERTIBLE', 'Convertible'),
     ]
-    
     type = models.CharField(max_length=20, choices=CAR_TYPES, default='SUV')
     year = models.IntegerField(
         validators=[
@@ -34,7 +32,6 @@ class CarModel(models.Model):
         ]
     )
     dealer_id = models.IntegerField()
-    
     fuel_type = models.CharField(
         max_length=20,
         choices=[
@@ -45,7 +42,6 @@ class CarModel(models.Model):
         ],
         default='PETROL'
     )
-    
     transmission = models.CharField(
         max_length=20,
         choices=[
@@ -54,7 +50,6 @@ class CarModel(models.Model):
         ],
         default='MANUAL'
     )
-    
     color = models.CharField(max_length=50, blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
 
